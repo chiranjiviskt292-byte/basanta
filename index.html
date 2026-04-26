@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basanta BMW Showroom | Luxury Cars Nepal</title>
+  <meta name="description" content="Basanta BMW Showroom – Nepal's premier destination for luxury BMW vehicles. Browse BMW M4, X5, M5, i8, X7, Z4 and more with competitive prices in NPR." />
+  <meta name="keywords" content="BMW Nepal, BMW showroom Nepal, luxury cars Nepal, BMW price Nepal, BMW Kathmandu, Basanta BMW" />
+  <meta property="og:title" content="Basanta BMW Showroom | Luxury Cars Nepal" />
+  <meta property="og:description" content="Explore the finest BMW collection in Nepal. Premium models, competitive prices." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Saira:wght@200;300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── CSS Variables ─────────────────────────────── */
+    :root {
+      --black:    #050608;
+      --carbon:   #0d0e12;
+      --surface:  #111318;
+      --surface2: #181b22;
+      --border:   rgba(255,255,255,0.07);
+      --blue:     #00aaff;
+      --blue-dim: rgba(0,170,255,0.12);
+      --blue-glow:rgba(0,170,255,0.35);
+      --silver:   #c0c8d8;
+      --white:    #eef2f8;
+      --muted:    #6b7280;
+      --red:      #ff3b3b;
+      --gold:     #c9a84c;
+    }
+
+    /* ─── Reset & Base ──────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Saira', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
+
+    /* ─── Scrollbar ─────────────────────────────────── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--carbon); }
+    ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 2px; }
+
+    /* ─── NAV ───────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw;
+      height: 68px;
+      background: rgba(5,6,8,0.88);
+      backdrop-filter: blur(18px) saturate(150%);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 40px rgba(0,170,255,0.08); }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .nav-logo-emblem {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      border: 2px solid var(--blue);
+      background: radial-gradient(circle at 35% 35%, #1a2540, #050608);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 14px var(--blue-glow);
+      flex-shrink: 0;
+    }
+    .nav-logo-emblem svg { width: 26px; height: 26px; }
+    .nav-brand { line-height: 1.1; }
+    .nav-brand-main {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: .1em; font-size: 1.25rem;
+      color: var(--white);
+    }
+    .nav-brand-sub {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .62rem; letter-spacing: .3em;
+      color: var(--blue); text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .85rem; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--silver); transition: color .2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute;
+      bottom: -4px; left: 0; right: 100%;
+      height: 1px; background: var(--blue);
+      transition: right .25s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { right: 0; }
+
+    .nav-cta {
+      padding: 8px 20px;
+      border: 1px solid var(--blue);
+      color: var(--blue) !important;
+      border-radius: 2px;
+      transition: background .2s, color .2s !important;
+    }
+    .nav-cta:hover { background: var(--blue) !important; color: var(--black) !important; }
+    .nav-cta::after { display: none !important; }
+
+    .hamburger {
+      display: none; flex-direction: column;
+      gap: 5px; cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--silver); border-radius: 1px;
+      transition: transform .3s, opacity .3s;
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none; position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: rgba(5,6,8,0.97);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+      z-index: 999;
+      padding: 24px 5vw;
+      flex-direction: column; gap: 20px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem; font-weight: 600;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: var(--silver);
+    }
+    .mobile-nav a:hover { color: var(--blue); }
+
+    /* ─── HERO ──────────────────────────────────────── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 50%, rgba(0,120,220,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(0,170,255,0.05) 0%, transparent 60%),
+        linear-gradient(135deg, #050608 0%, #0a0c12 50%, #060810 100%);
+    }
+    /* Animated grid lines */
+    .hero-grid {
+      position: absolute; inset: 0; overflow: hidden; opacity: .35;
+    }
+    .hero-grid::before {
+      content: '';
+      position: absolute; inset: -100%;
+      background-image:
+        linear-gradient(rgba(0,170,255,.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,170,255,.12) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridMove 20s linear infinite;
+    }
+    @keyframes gridMove { to { transform: translate(60px, 60px); } }
+
+    /* Decorative lines */
+    .hero-line {
+      position: absolute; background: linear-gradient(90deg, transparent, var(--blue), transparent);
+      height: 1px; opacity: .4;
+    }
+    .hero-line-1 { top: 28%; left: 0; width: 45%; animation: linePulse 4s ease-in-out infinite; }
+    .hero-line-2 { top: 72%; right: 0; width: 35%; animation: linePulse 4s ease-in-out infinite .8s; }
+    @keyframes linePulse { 0%,100%{opacity:.2} 50%{opacity:.7} }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 5vw; padding-top: 100px;
+      max-width: 700px;
+    }
+    .hero-eyebrow {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .78rem; letter-spacing: .35em;
+      text-transform: uppercase;
+      color: var(--blue); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+      animation: fadeUp .8s ease both;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 40px; height: 1px; background: var(--blue);
+    }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      line-height: .95; letter-spacing: .02em;
+      animation: fadeUp .8s ease .1s both;
+    }
+    .hero-title span { color: var(--blue); }
+    .hero-subtitle {
+      margin-top: 20px; font-size: 1rem;
+      color: var(--silver); line-height: 1.8;
+      max-width: 480px; font-weight: 300;
+      animation: fadeUp .8s ease .2s both;
+    }
+    .hero-actions {
+      margin-top: 36px; display: flex; gap: 16px; flex-wrap: wrap;
+      animation: fadeUp .8s ease .3s both;
+    }
+    .btn {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .88rem; font-weight: 700;
+      letter-spacing: .15em; text-transform: uppercase;
+      padding: 14px 32px; border-radius: 2px;
+      cursor: pointer; border: none;
+      transition: all .25s; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary {
+      background: var(--blue); color: var(--black);
+    }
+    .btn-primary:hover {
+      background: #33bfff;
+      box-shadow: 0 0 30px var(--blue-glow);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .btn-outline:hover {
+      border-color: var(--blue); color: var(--blue);
+      transform: translateY(-2px);
+    }
+
+    /* Stats bar */
+    .hero-stats {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      display: flex; justify-content: center;
+      border-top: 1px solid var(--border);
+      background: rgba(5,6,8,0.7);
+      backdrop-filter: blur(10px);
+      animation: fadeUp .8s ease .5s both;
+    }
+    .stat-item {
+      flex: 1; max-width: 220px;
+      padding: 24px 20px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem; color: var(--blue);
+      letter-spacing: .05em;
+    }
+    .stat-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .72rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--muted);
+      margin-top: 2px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── SECTION WRAPPER ───────────────────────────── */
+    section { padding: 90px 5vw; }
+    .section-header {
+      margin-bottom: 56px;
+    }
+    .section-eyebrow {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .75rem; letter-spacing: .35em;
+      text-transform: uppercase; color: var(--blue);
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 12px;
+    }
+    .section-eyebrow::before {
+      content: ''; width: 28px; height: 1px; background: var(--blue);
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      letter-spacing: .03em; line-height: 1;
+    }
+    .section-title span { color: var(--blue); }
+
+    /* ─── FLEET / CARS ──────────────────────────────── */
+    #fleet { background: var(--carbon); }
+
+    /* Search & Filters */
+    .fleet-controls {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      align-items: center; margin-bottom: 40px;
+    }
+    .search-wrap {
+      flex: 1; min-width: 220px; max-width: 360px;
+      position: relative;
+    }
+    .search-wrap svg {
+      position: absolute; left: 14px; top: 50%;
+      transform: translateY(-50%);
+      width: 16px; height: 16px; color: var(--muted);
+    }
+    #searchInput {
+      width: 100%; padding: 12px 14px 12px 42px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; color: var(--white);
+      font-family: 'Saira', sans-serif; font-size: .88rem;
+      outline: none; transition: border-color .2s;
+    }
+    #searchInput:focus { border-color: var(--blue); }
+    #searchInput::placeholder { color: var(--muted); }
+
+    .filter-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .8rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 9px 18px; border-radius: 2px;
+      cursor: pointer; border: 1px solid var(--border);
+      background: transparent; color: var(--silver);
+      transition: all .2s;
+    }
+    .filter-btn:hover { border-color: var(--blue); color: var(--blue); }
+    .filter-btn.active {
+      background: var(--blue); border-color: var(--blue);
+      color: var(--black);
+    }
+
+    /* Cars grid */
+    .cars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 24px;
+    }
+    .car-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden; cursor: pointer;
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+      animation: fadeUp .5s ease both;
+    }
+    .car-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.6), 0 0 30px var(--blue-dim);
+      border-color: rgba(0,170,255,0.3);
+    }
+    .car-img-wrap {
+      position: relative; height: 210px; overflow: hidden;
+      background: var(--surface2);
+    }
+    .car-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .5s;
+    }
+    .car-card:hover .car-img-wrap img { transform: scale(1.07); }
+    .car-tag {
+      position: absolute; top: 14px; left: 14px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .68rem; font-weight: 700;
+      letter-spacing: .15em; text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      border: 1px solid;
+    }
+    .tag-sedan  { color: #a78bfa; border-color: #a78bfa; background: rgba(167,139,250,.1); }
+    .tag-suv    { color: #34d399; border-color: #34d399; background: rgba(52,211,153,.1); }
+    .tag-sports { color: var(--red); border-color: var(--red); background: rgba(255,59,59,.1); }
+    .tag-electric{ color: var(--gold); border-color: var(--gold); background: rgba(201,168,76,.1); }
+
+    .car-body { padding: 20px 22px 22px; }
+    .car-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.2rem; font-weight: 700;
+      letter-spacing: .05em;
+    }
+    .car-spec-quick {
+      margin-top: 8px; display: flex; gap: 12px;
+      font-size: .76rem; color: var(--muted);
+    }
+    .car-spec-quick span { display: flex; align-items: center; gap: 4px; }
+    .car-price {
+      margin-top: 16px;
+      display: flex; align-items: flex-end;
+      justify-content: space-between;
+    }
+    .car-price-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.55rem; color: var(--blue);
+      letter-spacing: .05em;
+    }
+    .car-price-label {
+      font-size: .68rem; color: var(--muted);
+      letter-spacing: .1em; text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .car-btn-detail {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .75rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 7px 14px; border-radius: 2px;
+      border: 1px solid var(--blue); color: var(--blue);
+      background: transparent; cursor: pointer;
+      transition: all .2s;
+    }
+    .car-btn-detail:hover { background: var(--blue); color: var(--black); }
+
+    .no-results {
+      grid-column: 1/-1; text-align: center;
+      padding: 60px 20px; color: var(--muted);
+      font-family: 'Rajdhani', sans-serif; letter-spacing: .1em;
+    }
+
+    /* ─── MODAL ─────────────────────────────────────── */
+    .modal-backdrop {
+      display: none; position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,.85);
+      backdrop-filter: blur(8px);
+      align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .modal-backdrop.open { display: flex; animation: backdropIn .25s ease; }
+    @keyframes backdropIn { from{opacity:0} to{opacity:1} }
+
+    .modal {
+      background: var(--surface);
+      border: 1px solid rgba(0,170,255,0.25);
+      border-radius: 6px;
+      width: 100%; max-width: 860px;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: modalIn .3s cubic-bezier(.2,.8,.3,1) both;
+      position: relative;
+    }
+    @keyframes modalIn {
+      from { opacity:0; transform: scale(.94) translateY(20px); }
+      to   { opacity:1; transform: scale(1) translateY(0); }
+    }
+
+    .modal-close {
+      position: absolute; top: 16px; right: 16px;
+      width: 34px; height: 34px;
+      background: rgba(255,255,255,.07); border: 1px solid var(--border);
+      border-radius: 50%; cursor: pointer; color: var(--silver);
+      font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
+      transition: background .2s, color .2s; z-index: 5;
+    }
+    .modal-close:hover { background: var(--red); color: #fff; border-color: var(--red); }
+
+    .modal-img-wrap {
+      height: 300px; overflow: hidden;
+      border-radius: 5px 5px 0 0;
+      position: relative;
+    }
+    .modal-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .modal-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, var(--surface) 0%, transparent 50%);
+    }
+    .modal-tag {
+      position: absolute; top: 20px; left: 20px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .75rem; font-weight: 700;
+      letter-spacing: .15em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 2px;
+      border: 1px solid;
+    }
+
+    .modal-body { padding: 28px 32px 36px; }
+    .modal-header { margin-bottom: 24px; }
+    .modal-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem; letter-spacing: .04em; line-height: 1;
+    }
+    .modal-desc {
+      margin-top: 10px; font-size: .9rem;
+      color: var(--silver); line-height: 1.8; font-weight: 300;
+    }
+
+    .modal-specs {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 14px; margin-bottom: 28px;
+    }
+    .spec-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 3px; padding: 14px 16px;
+    }
+    .spec-box-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .65rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .spec-box-val {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem; font-weight: 700; color: var(--white);
+    }
+    .spec-box-val.accent { color: var(--blue); }
+
+    .modal-price-row {
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 16px;
+      padding-top: 20px; border-top: 1px solid var(--border);
+    }
+    .modal-price-block {}
+    .modal-price-lbl {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .7rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .modal-price-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem; color: var(--blue); letter-spacing: .05em;
+    }
+    .modal-buy-btn {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .88rem; font-weight: 700;
+      letter-spacing: .15em; text-transform: uppercase;
+      padding: 13px 30px; border-radius: 2px;
+      background: var(--blue); color: var(--black);
+      border: none; cursor: pointer;
+      transition: all .25s;
+    }
+    .modal-buy-btn:hover {
+      background: #33bfff;
+      box-shadow: 0 0 30px var(--blue-glow);
+    }
+
+    /* ─── CHECKOUT ──────────────────────────────────── */
+    #checkout { background: var(--black); }
+
+    .checkout-wrap {
+      max-width: 680px; margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px; overflow: hidden;
+    }
+    .checkout-header {
+      padding: 28px 36px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface2);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .checkout-header-icon {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--blue-dim);
+      border: 1px solid var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue); flex-shrink: 0;
+    }
+    .checkout-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.2rem; font-weight: 700; letter-spacing: .08em;
+    }
+    .checkout-subtitle {
+      font-size: .78rem; color: var(--muted); margin-top: 2px;
+    }
+
+    .checkout-form { padding: 32px 36px; }
+    .form-group { margin-bottom: 22px; }
+    .form-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--muted); display: block; margin-bottom: 8px;
+    }
+    .form-input {
+      width: 100%; padding: 13px 16px;
+      background: var(--surface2);
+      border: 1px solid var(--border); border-radius: 3px;
+      color: var(--white); font-family: 'Saira', sans-serif;
+      font-size: .9rem; outline: none; transition: border-color .2s;
+    }
+    .form-input:focus { border-color: var(--blue); }
+    .form-input::placeholder { color: var(--muted); }
+
+    .payment-methods {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .payment-opt {
+      position: relative;
+    }
+    .payment-opt input[type="radio"] { display: none; }
+    .payment-opt label {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 16px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 3px; cursor: pointer;
+      transition: border-color .2s, background .2s;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .88rem; font-weight: 600;
+    }
+    .payment-opt input:checked + label {
+      border-color: var(--blue);
+      background: var(--blue-dim);
+      color: var(--blue);
+    }
+    .payment-opt label:hover { border-color: rgba(0,170,255,.4); }
+
+    .pay-icon { width: 22px; height: 22px; flex-shrink: 0; }
+
+    .checkout-submit {
+      width: 100%; margin-top: 8px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .95rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      padding: 16px; border-radius: 3px;
+      background: var(--blue); color: var(--black);
+      border: none; cursor: pointer;
+      transition: all .25s;
+    }
+    .checkout-submit:hover {
+      background: #33bfff;
+      box-shadow: 0 0 40px var(--blue-glow);
+    }
+
+    .payment-success {
+      display: none;
+      text-align: center; padding: 48px 36px;
+    }
+    .payment-success.show { display: block; }
+    .success-icon {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: rgba(52,211,153,.12);
+      border: 2px solid #34d399;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      animation: popIn .4s cubic-bezier(.2,.8,.3,1);
+    }
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+    .success-icon svg { color: #34d399; width: 32px; height: 32px; }
+    .success-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem; letter-spacing: .05em; color: #34d399;
+    }
+    .success-msg {
+      margin-top: 10px; color: var(--silver);
+      font-size: .9rem; line-height: 1.8;
+    }
+    .success-note {
+      margin-top: 16px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .72rem; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .success-reset {
+      margin-top: 28px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .82rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 11px 24px; border-radius: 2px;
+      border: 1px solid var(--border); background: transparent;
+      color: var(--silver); cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .success-reset:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* ─── ABOUT ─────────────────────────────────────── */
+    #about { background: var(--carbon); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+    }
+    .about-img-col { position: relative; }
+    .about-img-frame {
+      position: relative; border-radius: 4px; overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .about-img-frame img { width: 100%; height: 100%; object-fit: cover; }
+    .about-img-frame::after {
+      content: ''; position: absolute; inset: 0;
+      border: 1px solid rgba(0,170,255,0.25);
+      border-radius: 4px; pointer-events: none;
+    }
+    .about-corner {
+      position: absolute; width: 40px; height: 40px;
+      border-color: var(--blue); border-style: solid;
+      border-width: 0;
+    }
+    .about-corner-tl { top: -8px; left: -8px; border-top-width: 2px; border-left-width: 2px; }
+    .about-corner-br { bottom: -8px; right: -8px; border-bottom-width: 2px; border-right-width: 2px; }
+
+    .about-text {}
+    .about-text p {
+      font-size: .95rem; color: var(--silver);
+      line-height: 1.9; margin-bottom: 16px; font-weight: 300;
+    }
+    .about-features {
+      margin-top: 28px; display: flex; flex-direction: column; gap: 12px;
+    }
+    .about-feat {
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .about-feat-icon {
+      width: 32px; height: 32px; flex-shrink: 0;
+      border-radius: 50%; background: var(--blue-dim);
+      border: 1px solid var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue); margin-top: 2px;
+    }
+    .about-feat-icon svg { width: 14px; height: 14px; }
+    .about-feat-text {}
+    .about-feat-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .9rem; font-weight: 700; letter-spacing: .05em;
+    }
+    .about-feat-desc {
+      font-size: .8rem; color: var(--muted); margin-top: 2px;
+    }
+
+    /* ─── CONTACT / CTA ─────────────────────────────── */
+    #contact {
+      background: var(--black);
+      text-align: center;
+    }
+    .contact-inner { max-width: 600px; margin: 0 auto; }
+    .contact-inner p {
+      color: var(--silver); font-size: .95rem;
+      line-height: 1.9; margin: 16px 0 32px;
+    }
+    .contact-info {
+      display: flex; justify-content: center; gap: 40px;
+      flex-wrap: wrap; margin-top: 40px;
+    }
+    .contact-info-item {
+      text-align: center;
+    }
+    .contact-info-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .68rem; letter-spacing: .25em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+    }
+    .contact-info-val {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600; font-size: .95rem; color: var(--white);
+    }
+
+    /* ─── FOOTER ────────────────────────────────────── */
+    footer {
+      background: var(--carbon);
+      border-top: 1px solid var(--border);
+      padding: 40px 5vw 28px;
+    }
+    .footer-top {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; flex-wrap: wrap; gap: 32px;
+      margin-bottom: 32px;
+    }
+    .footer-brand-desc {
+      max-width: 320px;
+      font-size: .82rem; color: var(--muted); line-height: 1.8;
+      margin-top: 12px;
+    }
+    .footer-links-group h4 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--silver); margin-bottom: 14px;
+    }
+    .footer-links-group ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-links-group a {
+      font-size: .82rem; color: var(--muted);
+      transition: color .2s;
+    }
+    .footer-links-group a:hover { color: var(--blue); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 12px;
+      font-size: .75rem; color: var(--muted);
+    }
+    .footer-bottom span { letter-spacing: .05em; }
+    .footer-bottom .blue { color: var(--blue); }
+
+    /* ─── RESPONSIVE ────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-stats { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-img-col { order: -1; }
+      .payment-methods { grid-template-columns: 1fr; }
+      .checkout-form, .checkout-header { padding: 24px; }
+      .modal-body { padding: 20px 22px 28px; }
+      .modal-img-wrap { height: 220px; }
+    }
+    @media (max-width: 480px) {
+      .hero-content { padding-top: 120px; }
+      .hero-actions { flex-direction: column; }
+      .btn { justify-content: center; width: 100%; }
+      .modal-specs { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ──────────────────────────────────── -->
+<nav id="mainNav">
+  <div class="nav-logo">
+    <div class="nav-logo-emblem">
+      <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="13" cy="13" r="12" stroke="#00aaff" stroke-width="1.2"/>
+        <line x1="13" y1="1" x2="13" y2="25" stroke="#00aaff" stroke-width="1"/>
+        <line x1="1" y1="13" x2="25" y2="13" stroke="#00aaff" stroke-width="1"/>
+        <path d="M7 13 Q10 7 13 7 Q16 7 19 13" fill="#001b30" stroke="#00aaff" stroke-width=".8"/>
+        <path d="M7 13 Q10 19 13 19 Q16 19 19 13" fill="#00aaff" opacity=".5" stroke="#00aaff" stroke-width=".8"/>
+      </svg>
+    </div>
+    <div class="nav-brand">
+      <div class="nav-brand-main">BASANTA BMW</div>
+      <div class="nav-brand-sub">Official Showroom · Nepal</div>
+    </div>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#fleet">Our Fleet</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#checkout" class="nav-cta">Book Now</a></li>
+  </ul>
+
+  <div class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#hero"     onclick="closeMobile()">Home</a>
+  <a href="#fleet"    onclick="closeMobile()">Our Fleet</a>
+  <a href="#about"    onclick="closeMobile()">About</a>
+  <a href="#checkout" onclick="closeMobile()">Book Now</a>
+</nav>
+
+<!-- ─── HERO ────────────────────────────────────────── -->
+<section id="hero" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-line hero-line-1"></div>
+  <div class="hero-line hero-line-2"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Kathmandu, Nepal's Premier Dealership</div>
+    <h1 class="hero-title">THE ART OF<br><span>DRIVING</span></h1>
+    <p class="hero-subtitle">
+      Experience the pinnacle of German engineering at Basanta BMW Showroom.
+      Premium luxury vehicles, exceptional service, and a passion for performance —
+      all in the heart of Nepal.
+    </p>
+    <div class="hero-actions">
+      <a href="#fleet" class="btn btn-primary">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Explore Fleet
+      </a>
+      <a href="#checkout" class="btn btn-outline">Book a Test Drive</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">6+</div>
+      <div class="stat-label">BMW Models</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Happy Clients</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">12</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">NPR</div>
+      <div class="stat-label">Competitive Pricing</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FLEET ────────────────────────────────────────── -->
+<section id="fleet">
+  <div class="section-header">
+    <div class="section-eyebrow">Premium Selection</div>
+    <h2 class="section-title">OUR <span>FLEET</span></h2>
+  </div>
+
+  <div class="fleet-controls">
+    <div class="search-wrap">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+      </svg>
+      <input type="text" id="searchInput" placeholder="Search BMW models…" oninput="filterCars()" />
+    </div>
+    <div class="filter-btns">
+      <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+      <button class="filter-btn" onclick="setFilter('sedan',this)">Sedan</button>
+      <button class="filter-btn" onclick="setFilter('suv',this)">SUV</button>
+      <button class="filter-btn" onclick="setFilter('sports',this)">Sports</button>
+      <button class="filter-btn" onclick="setFilter('electric',this)">Electric</button>
+    </div>
+  </div>
+
+  <div class="cars-grid" id="carsGrid"></div>
+</section>
+
+<!-- ─── ABOUT ────────────────────────────────────────── -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-col">
+      <div class="about-img-frame">
+        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=700&q=80" alt="BMW Showroom Nepal" loading="lazy"/>
+        <div class="about-corner about-corner-tl"></div>
+        <div class="about-corner about-corner-br"></div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="section-eyebrow">Our Story</div>
+      <h2 class="section-title">WHY <span>BASANTA</span></h2>
+      <p style="margin-top:20px">
+        Founded over a decade ago, Basanta BMW Showroom has been Nepal's most trusted
+        destination for luxury German automobiles. Our showroom blends the
+        prestige of BMW's heritage with the warmth of Nepali hospitality.
+      </p>
+      <p>
+        Every vehicle in our collection undergoes rigorous quality checks and comes
+        with comprehensive after-sales support, genuine spare parts, and certified
+        BMW service.
+      </p>
+      <div class="about-features">
+        <div class="about-feat">
+          <div class="about-feat-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div class="about-feat-text">
+            <div class="about-feat-title">Certified BMW Dealer</div>
+            <div class="about-feat-desc">Official authorised dealership in Nepal</div>
+          </div>
+        </div>
+        <div class="about-feat">
+          <div class="about-feat-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div class="about-feat-text">
+            <div class="about-feat-title">12 Years Experience</div>
+            <div class="about-feat-desc">Trusted by 500+ satisfied customers</div>
+          </div>
+        </div>
+        <div class="about-feat">
+          <div class="about-feat-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div class="about-feat-text">
+            <div class="about-feat-title">Full After-Sales Support</div>
+            <div class="about-feat-desc">Genuine parts, certified BMW technicians</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CHECKOUT ──────────────────────────────────────── -->
+<section id="checkout">
+  <div class="section-header" style="text-align:center">
+    <div class="section-eyebrow" style="justify-content:center">Reserve Your Dream</div>
+    <h2 class="section-title">BOOK & <span>PAY</span></h2>
+  </div>
+
+  <div class="checkout-wrap">
+    <div class="checkout-header">
+      <div class="checkout-header-icon">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+        </svg>
+      </div>
+      <div>
+        <div class="checkout-title">Secure Checkout</div>
+        <div class="checkout-subtitle">Demo payment — no real transaction processed</div>
+      </div>
+    </div>
+
+    <div class="checkout-form" id="checkoutFormWrap">
+      <div class="form-group">
+        <label class="form-label" for="fullName">Full Name</label>
+        <input class="form-input" type="text" id="fullName" placeholder="e.g. Basanta Sharma" />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="email">Email Address</label>
+        <input class="form-input" type="email" id="email" placeholder="you@example.com" />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="selectedCar">Selected Model</label>
+        <input class="form-input" type="text" id="selectedCar" placeholder="e.g. BMW M4 Competition" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Payment Method</label>
+        <div class="payment-methods">
+          <div class="payment-opt">
+            <input type="radio" name="payment" id="bankTransfer" value="Bank Transfer" checked />
+            <label for="bankTransfer">
+              <svg class="pay-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/>
+              </svg>
+              Bank Transfer
+            </label>
+          </div>
+          <div class="payment-opt">
+            <input type="radio" name="payment" id="cardPay" value="Credit/Debit Card" />
+            <label for="cardPay">
+              <svg class="pay-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+              </svg>
+              Credit / Debit Card
+            </label>
+          </div>
+          <div class="payment-opt">
+            <input type="radio" name="payment" id="esewa" value="eSewa" />
+            <label for="esewa">
+              <svg class="pay-icon" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="12" r="10"/><path fill="white" d="M8 12h8M12 8v8"/>
+              </svg>
+              eSewa
+            </label>
+          </div>
+          <div class="payment-opt">
+            <input type="radio" name="payment" id="khalti" value="Khalti" />
+            <label for="khalti">
+              <svg class="pay-icon" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="2" y="2" width="20" height="20" rx="4"/><path fill="white" d="M7 12l4 4 6-6"/>
+              </svg>
+              Khalti
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="amount">Amount (NPR)</label>
+        <input class="form-input" type="number" id="amount" placeholder="e.g. 18500000" />
+      </div>
+      <button class="checkout-submit" onclick="submitPayment()">
+        Confirm Payment &nbsp;→
+      </button>
+    </div>
+
+    <div class="payment-success" id="paymentSuccess">
+      <div class="success-icon">
+        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+      </div>
+      <div class="success-title">Payment Successful!</div>
+      <div class="success-msg" id="successMsg"></div>
+      <div class="success-note">⚠️ Demo Mode — No actual charge was made</div>
+      <button class="success-reset" onclick="resetForm()">Make Another Booking</button>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ──────────────────────────────────────── -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-eyebrow" style="justify-content:center">Get In Touch</div>
+    <h2 class="section-title">VISIT <span>US</span></h2>
+    <p>Our expert team is ready to help you find the perfect BMW.
+       Schedule a private viewing or visit our showroom in Kathmandu today.</p>
+    <div class="hero-actions" style="justify-content:center">
+      <a href="#checkout" class="btn btn-primary">Book Test Drive</a>
+      <a href="tel:+977-1-0000000" class="btn btn-outline">Call Us</a>
+    </div>
+    <div class="contact-info">
+      <div class="contact-info-item">
+        <div class="contact-info-label">Location</div>
+        <div class="contact-info-val">Kathmandu, Nepal</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-label">Phone</div>
+        <div class="contact-info-val">+977-1-000-0000</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-label">Email</div>
+        <div class="contact-info-val">info@basantabmw.com.np</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-label">Hours</div>
+        <div class="contact-info-val">Sun–Fri 9am–6pm</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="nav-logo">
+        <div class="nav-logo-emblem" style="width:36px;height:36px">
+          <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+            <circle cx="13" cy="13" r="12" stroke="#00aaff" stroke-width="1.2"/>
+            <line x1="13" y1="1" x2="13" y2="25" stroke="#00aaff" stroke-width="1"/>
+            <line x1="1" y1="13" x2="25" y2="13" stroke="#00aaff" stroke-width="1"/>
+            <path d="M7 13 Q10 7 13 7 Q16 7 19 13" fill="#001b30" stroke="#00aaff" stroke-width=".8"/>
+            <path d="M7 13 Q10 19 13 19 Q16 19 19 13" fill="#00aaff" opacity=".5" stroke="#00aaff" stroke-width=".8"/>
+          </svg>
+        </div>
+        <div class="nav-brand">
+          <div class="nav-brand-main">BASANTA BMW</div>
+          <div class="nav-brand-sub">Official Showroom · Nepal</div>
+        </div>
+      </div>
+      <p class="footer-brand-desc">
+        Nepal's premier BMW dealership. Delivering the ultimate driving experience
+        since 2012, with unmatched luxury, performance, and service.
+      </p>
+    </div>
+    <div class="footer-links-group">
+      <h4>Models</h4>
+      <ul>
+        <li><a href="#fleet">BMW M4 Competition</a></li>
+        <li><a href="#fleet">BMW X5</a></li>
+        <li><a href="#fleet">BMW M5</a></li>
+        <li><a href="#fleet">BMW i8</a></li>
+        <li><a href="#fleet">BMW X7</a></li>
+        <li><a href="#fleet">BMW Z4</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-group">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#checkout">Book a Test Drive</a></li>
+        <li><a href="#checkout">Financing Options</a></li>
+        <li><a href="#contact">After-Sales Service</a></li>
+        <li><a href="#contact">Genuine Parts</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 <span class="blue">Basanta BMW Showroom</span>. All rights reserved.</span>
+    <span>Kathmandu, Nepal &nbsp;·&nbsp; Authorized BMW Dealer</span>
+  </div>
+</footer>
+
+<!-- ─── CAR DETAIL MODAL ────────────────────────────── -->
+<div class="modal-backdrop" id="modalBackdrop" onclick="closeModal(event)">
+  <div class="modal" id="carModal">
+    <button class="modal-close" onclick="hideModal()" aria-label="Close">&times;</button>
+    <div class="modal-img-wrap">
+      <img id="modalImg" src="" alt="" />
+      <div class="modal-img-overlay"></div>
+      <div class="modal-tag" id="modalTag"></div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-header">
+        <h2 class="modal-name" id="modalName"></h2>
+        <p class="modal-desc" id="modalDesc"></p>
+      </div>
+      <div class="modal-specs" id="modalSpecs"></div>
+      <div class="modal-price-row">
+        <div class="modal-price-block">
+          <div class="modal-price-lbl">Starting Price</div>
+          <div class="modal-price-val" id="modalPrice"></div>
+        </div>
+        <button class="modal-buy-btn" id="modalBuyBtn">Reserve This Car →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── JAVASCRIPT ────────────────────────────────────── -->
+<script>
+// ── Car Data ──────────────────────────────────────────
+const CARS = [
+  {
+    id: 1,
+    name: "BMW M4 Competition",
+    category: "sports",
+    price: "NPR 1.85 Crore",
+    priceRaw: 18500000,
+    engine: "3.0L Twin-Turbo S58 Inline-6",
+    hp: "503 HP",
+    topSpeed: "290 km/h",
+    zeroHundred: "3.9 sec",
+    fuel: "Petrol",
+    img: "https://www.bmw-m.com/content/dam/bmw/marketBMW_M/www_bmw-m_com/all-models/model-navigation/bmw-m4-competition-coupe-lci-flyout.png?imwidth=1440&imformat=png",
+    desc: "The BMW M4 Competition is the apex predator of the sports car world. With a thunderous twin-turbocharged inline-six and carbon-ceramic brake option, it obliterates corners while delivering an interior of uncompromising luxury. This is the car that defines what a performance machine can be."
+  },
+  {
+    id: 2,
+    name: "BMW X5",
+    category: "suv",
+    price: "NPR 1.45 Crore",
+    priceRaw: 14500000,
+    engine: "3.0L TwinPower Turbo B58",
+    hp: "335 HP",
+    topSpeed: "250 km/h",
+    zeroHundred: "5.5 sec",
+    fuel: "Petrol / Diesel",
+    img: "https://tse4.mm.bing.net/th/id/OIP.o7df0xTJidV33i2pDZm7YQHaEK?rs=1&pid=ImgDetMain&o=7&rm=320&w=800&h=450",
+    desc: "A masterclass in versatility, the BMW X5 fuses commanding presence with refined luxury. Its adaptive air suspension glides over Nepal's varied terrain while the panoramic roof and opulent interior make every journey an occasion. The xDrive AWD system ensures confident handling in all conditions."
+  },
+  {
+    id: 3,
+    name: "BMW M5",
+    category: "sedan",
+    price: "NPR 2.20 Crore",
+    priceRaw: 22000000,
+    engine: "4.4L V8 Twin-Turbo S63",
+    hp: "617 HP",
+    topSpeed: "305 km/h",
+    zeroHundred: "3.3 sec",
+    fuel: "Petrol",
+    img: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&q=80",
+    desc: "The BMW M5 is the ultimate expression of the sports sedan—a vehicle that can transport four adults in supreme comfort yet sprint to 100 km/h in just 3.3 seconds. It is a technological tour de force, blending M xDrive all-wheel drive, an adaptive M suspension and a 617-horsepower V8 engine."
+  },
+  {
+    id: 4,
+    name: "BMW i5",
+    category: "electric",
+    price: "NPR 2.80 Crore",
+    priceRaw: 28000000,
+    engine: "1.5L TurboCharge + Electric Motor",
+    hp: "369 HP (Combined)",
+    topSpeed: "250 km/h",
+    zeroHundred: "4.4 sec",
+    fuel: "Plug-in Hybrid",
+    img: "https://www.bmw-m.com/content/dam/bmw/marketBMW_M/www_bmw-m_com/all-models/model-navigation/bmw-i5-m60-touring-flyout.png?imwidth=1440&imformat=png",
+    desc: "The BMW i5 is automotive sculpture in motion. Its carbon fibre reinforced plastic body and butterfly doors make it unmistakable, while the plug-in hybrid drivetrain delivers breathtaking performance with a conscience. Electric-only range for city driving, full sports car power for the open road."
+  },
+  {
+    id: 5,
+    name: "BMW X7",
+    category: "suv",
+    price: "NPR 2.10 Crore",
+    priceRaw: 21000000,
+    engine: "3.0L TwinPower Turbo B57",
+    hp: "400 HP",
+    topSpeed: "250 km/h",
+    zeroHundred: "5.4 sec",
+    fuel: "Diesel",
+    img: "https://www.bmw-m.com/content/dam/bmw/marketBMW_M/www_bmw-m_com/all-models/model-navigation/bmw-x7-m60i-flyout-031.png?imwidth=1440&imformat=png",
+    desc: "BMW's flagship SUV, the X7, redefines what a luxury family vehicle can achieve. With three rows of sumptuous seating, a 12.3-inch curved display and M-Sport body kit, it commands every road with supreme authority. The air suspension and adaptive dampers make rough Himalayan routes feel effortless."
+  },
+  {
+    id: 6,
+    name: "BMW Z4",
+    category: "sports",
+    price: "NPR 1.60 Crore",
+    priceRaw: 16000000,
+    engine: "3.0L TwinPower Turbo B58",
+    hp: "382 HP",
+    topSpeed: "250 km/h",
+    zeroHundred: "4.5 sec",
+    fuel: "Petrol",
+    img: "https://www.bmw-m.com/content/dam/bmw/marketBMW_M/www_bmw-m_com/all-models/model-navigation/bmw-z4-m40i-lci-flyout.png?imwidth=1440&imformat=png", 
+    desc: "The BMW Z4 is pure, undiluted driving pleasure. Its roadster DNA is unmistakable — a long hood, retractable soft-top and perfectly balanced rear-wheel drive. The collaborative design with Toyota's Supra platform brings sharp reflexes and a melodious inline-six soundtrack that stays with you long after the drive."
+  }
+];
+
+// ── State ─────────────────────────────────────────────
+let activeFilter = 'all';
+
+// ── Render Cars ───────────────────────────────────────
+function renderCars() {
+  const grid = document.getElementById('carsGrid');
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const filtered = CARS.filter(c => {
+    const matchFilter = activeFilter === 'all' || c.category === activeFilter;
+    const matchSearch = c.name.toLowerCase().includes(query);
+    return matchFilter && matchSearch;
+  });
+
+  if (!filtered.length) {
+    grid.innerHTML = `<div class="no-results">No BMW models found. Try adjusting your filter or search.</div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map((c, i) => `
+    <div class="car-card" style="animation-delay:${i * 0.06}s" onclick="openModal(${c.id})">
+      <div class="car-img-wrap">
+        <img src="${c.img}" alt="${c.name}" loading="lazy"/>
+        <div class="car-tag tag-${c.category}">${c.category}</div>
+      </div>
+      <div class="car-body">
+        <div class="car-name">${c.name}</div>
+        <div class="car-spec-quick">
+          <span>⚡ ${c.hp}</span>
+          <span>🏎 ${c.zeroHundred}</span>
+          <span>⛽ ${c.fuel}</span>
+        </div>
+        <div class="car-price">
+          <div>
+            <div class="car-price-label">Starting at</div>
+            <div class="car-price-val">${c.price}</div>
+          </div>
+          <button class="car-btn-detail" onclick="event.stopPropagation();openModal(${c.id})">Details →</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function setFilter(filter, btn) {
+  activeFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCars();
+}
+
+function filterCars() { renderCars(); }
+
+// ── Modal ─────────────────────────────────────────────
+function openModal(id) {
+  const car = CARS.find(c => c.id === id);
+  if (!car) return;
+
+  document.getElementById('modalImg').src = car.img;
+  document.getElementById('modalImg').alt = car.name;
+  document.getElementById('modalName').textContent = car.name;
+  document.getElementById('modalDesc').textContent = car.desc;
+  document.getElementById('modalPrice').textContent = car.price;
+
+  const tag = document.getElementById('modalTag');
+  tag.textContent = car.category;
+  tag.className = `modal-tag tag-${car.category}`;
+
+  document.getElementById('modalSpecs').innerHTML = [
+    { label: 'Engine',      val: car.engine,       accent: false },
+    { label: 'Horsepower',  val: car.hp,           accent: true  },
+    { label: 'Top Speed',   val: car.topSpeed,     accent: true  },
+    { label: '0–100 km/h',  val: car.zeroHundred,  accent: true  },
+    { label: 'Fuel Type',   val: car.fuel,         accent: false },
+    { label: 'Category',    val: car.category.toUpperCase(), accent: false },
+  ].map(s => `
+    <div class="spec-box">
+      <div class="spec-box-label">${s.label}</div>
+      <div class="spec-box-val${s.accent ? ' accent' : ''}">${s.val}</div>
+    </div>
+  `).join('');
+
+  document.getElementById('modalBuyBtn').onclick = () => {
+    hideModal();
+    document.getElementById('selectedCar').value = car.name;
+    document.getElementById('amount').value = car.priceRaw;
+    document.getElementById('checkout').scrollIntoView({behavior:'smooth'});
+  };
+
+  document.getElementById('modalBackdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function hideModal() {
+  document.getElementById('modalBackdrop').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modalBackdrop')) hideModal();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
+
+// ── Checkout ──────────────────────────────────────────
+function submitPayment() {
+  const name    = document.getElementById('fullName').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const car     = document.getElementById('selectedCar').value.trim();
+  const amount  = document.getElementById('amount').value.trim();
+  const method  = document.querySelector('input[name="payment"]:checked').value;
+
+  if (!name || !email || !car || !amount) {
+    alert('Please fill in all fields before confirming.');
+    return;
+  }
+
+  const fmt = new Intl.NumberFormat('en-NP').format(parseInt(amount));
+  document.getElementById('successMsg').innerHTML = `
+    Thank you, <strong>${name}</strong>! Your reservation for the <strong>${car}</strong>
+    has been received.<br><br>
+    Amount: <strong>NPR ${fmt}</strong> · Method: <strong>${method}</strong><br>
+    A confirmation will be sent to <strong>${email}</strong>.
+  `;
+
+  document.getElementById('checkoutFormWrap').style.display = 'none';
+  document.getElementById('paymentSuccess').classList.add('show');
+}
+
+function resetForm() {
+  document.getElementById('fullName').value = '';
+  document.getElementById('email').value = '';
+  document.getElementById('selectedCar').value = '';
+  document.getElementById('amount').value = '';
+  document.getElementById('checkoutFormWrap').style.display = '';
+  document.getElementById('paymentSuccess').classList.remove('show');
+}
+
+// ── Nav ───────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => {
+  mobileNav.classList.toggle('open');
+});
+
+function closeMobile() {
+  mobileNav.classList.remove('open');
+}
+
+// ── Init ──────────────────────────────────────────────
+renderCars();
+</script>
+</body>
+</html>
