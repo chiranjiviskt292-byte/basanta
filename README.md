@@ -152,6 +152,4 @@ const LETTER_SECTIONS = [
 
 ---
 
-## 📄 License
 
-This project is licensed under the [MIT License](LICENSE) — feel free to use and customize it to make someone smile on their special day!
