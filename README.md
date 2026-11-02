@@ -149,15 +149,6 @@ const LETTER_SECTIONS = [
 
 ---
 
-## 💖 Contributing & Feedback
-
-Feel free to fork this repository, add your own twists, or submit issues and pull requests to improve the experience.
-
----
-
-## 👨‍💻 Author
-
-Created with 💖 by **[@saklincodes](https://github.com/saklincodes)**
 
 ---
 
